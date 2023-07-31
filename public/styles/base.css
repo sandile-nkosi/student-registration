@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif; 
+  
+  --color-primary-50: rgb(255, 255, 255);
+  --color-primary-100: rgb(225, 244, 247);
+  --color-primary-150: rgb(0, 152, 176);
+  --color-primary-200: rgb(0, 136, 156);
+  --color-primary-250: rgb(51, 122, 183);
+  --color-primary-300: rgb(40, 109, 168);
+  --color-primary-400: rgb(108, 61, 145);
+
+  --color-grey-700: rgb(36, 35, 33);
+
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  --border-radius-small: 4px;
+  --border-radius-medium: 6px;
+}
+
+body {
+  background-color: var(--colour-primary-50);
+  color: var(--color-grey-700);
+  margin: 0;
+}
+
+main {
+  width: 90%;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary-200);
+}
+
+.btn {
+  cursor: pointer;
+  font: inherit;
+  padding: var(--space-2) var(--space-6);
+  background-color: var(--color-primary-300);
+  color: var(--color-primary-50);
+  border: 1px solid var(--color-primary-300);
+  border-radius: var(--border-radius-small);
+}
+
+.btn:hover,
+.btn:active {
+  background-color: var(--color-primary-250);
+  border-color: var(--color-primary-250);
+}
