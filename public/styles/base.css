@@ -15,6 +15,10 @@ html {
 
   --color-grey-700: rgb(36, 35, 33);
 
+  --color-error-100: rgb(255, 192, 180);
+  --color-error-500: rgb(199, 51, 15);
+
+  --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-4: 1rem;
   --space-6: 1.5rem;
@@ -62,4 +66,21 @@ a {
 .btn:active {
   background-color: var(--color-primary-250);
   border-color: var(--color-primary-250);
+}
+
+.alert {
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-error-100);
+  color: var(--color-error-500);
+  padding: var(--space-4);
+}
+
+.alert h2 {
+  font-size: 1rem;
+  margin: var(--space-2) 0;
+  text-transform: uppercase;
+}
+
+.alert p {
+  margin: var(--space-2) 0;
 }
