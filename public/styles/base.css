@@ -11,6 +11,7 @@ html {
   --color-primary-200: rgb(0, 136, 156);
   --color-primary-250: rgb(51, 122, 183);
   --color-primary-300: rgb(40, 109, 168);
+  --color-primary-350: rgb(138, 89, 175);
   --color-primary-400: rgb(108, 61, 145);
 
   --color-grey-700: rgb(36, 35, 33);
@@ -49,7 +50,7 @@ ol {
 
 a {
   text-decoration: none;
-  color: var(--color-primary-200);
+  color: var(--color-primary-50);
 }
 
 .btn {
