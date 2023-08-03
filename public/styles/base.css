@@ -41,6 +41,10 @@ main {
   margin: 0 auto;
 }
 
+img {
+  display: block;
+}
+
 ul,
 ol {
   list-style: none;
@@ -67,6 +71,17 @@ a {
 .btn:active {
   background-color: var(--color-primary-250);
   border-color: var(--color-primary-250);
+}
+
+.btn-alt {
+  background-color: var(--color-primary-200);
+  border-color: var(--color-primary-200);
+}
+
+.btn-alt:hover,
+.btn-alt:active {
+  background-color: var(--color-primary-150);
+  border-color: var(--color-primary-300);
 }
 
 .alert {

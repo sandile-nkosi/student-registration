@@ -7,6 +7,8 @@
       <h2>Biographical details</h2>
       <form action="dashboard/edit" method="POST">
         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+        <img src="" alt="student-image">
+        <input type="file" id="image" name="image">
         <p>
           <label for="nationality">Nationality</label>
           <input type="text" name="nationality" id="nationality" required>
@@ -57,7 +59,8 @@
           <label for="popiAct">Agree to POPI Act</label>
           <input type="checkbox" id="popiAct" name="popiAct" value="true">
         </p>
-        <button class="btn">Edit details</button>
+        <button type="button" class="btn btn-alt">Edit details</button>
+        <button class="btn">Save</button>
       </form>
       <h2>Course Details</h2>
         <p>
