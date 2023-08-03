@@ -68,7 +68,7 @@ async function login(req, res, next) {
   }
 
   authUtil.createUserSession(req, existingStudent, ()=> {
-    res.redirect('/');
+    res.redirect('/dashboard');
   })
 
 }

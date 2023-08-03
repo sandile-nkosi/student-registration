@@ -1,7 +1,5 @@
 <ul class="nav-items">
   <li><a href="/">Home</a></li>
-  <li><a href="/enquiries">General enquiries</a></li>
-  <li><a href="/about">About</a></li>
 
   <% if (locals.isAuth) { %>
     <li><a href="/dashboard">Dashboard</a></li>
@@ -11,6 +9,9 @@
   <% if (!locals.isAuth) { %>
     <li><a href="/login">Login</a></li>
   <% } %>
+
+  <li><a href="/enquiries">General enquiries</a></li>
+  <li><a href="/about">About</a></li>
 
   <% if (locals.isAuth) { %>
     <li>
