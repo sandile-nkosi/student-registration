@@ -10,7 +10,7 @@ const addCsrfToken = require('./middlewares/csrf-token');
 const errorHandler = require('./middlewares/error-handler');
 const checkAuthStatus = require('./middlewares/check-auth');
 const authRoutes = require('./routes/auth.routes');
-const dashboardRoutes = require('./routes/dashboard.routes');
+const studentRoutes = require('./routes/student.routes');
 const baseRoutes = require('./routes/base.routes');
 
 const app = express();
@@ -31,7 +31,7 @@ app.use(checkAuthStatus);
 
 app.use(baseRoutes);
 app.use(authRoutes);
-app.use(dashboardRoutes);
+app.use('/student', studentRoutes);
 
 app.use(errorHandler);
 
