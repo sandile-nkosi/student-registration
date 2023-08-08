@@ -1,9 +1,9 @@
 <ul class="nav-items">
-  <li><a href="/">Home</a></li>
+  <li><a href="/index">Home</a></li>
 
   <% if (locals.isAuth) { %>
     <li><a href="/student/dashboard">Dashboard</a></li>
-    <li><a href="/registration">Registration</a></li>
+    <li><a href="/student/registration">Registration</a></li>
   <% } %>
 
   <% if (!locals.isAuth) { %>

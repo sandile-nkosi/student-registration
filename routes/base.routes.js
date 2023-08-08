@@ -3,7 +3,13 @@ const baseController = require('../controllers/base.controller');
 
 const router = express.Router();
 
-router.get('/', baseController.getIndex);
+router.get('/', (req, res)=> {
+  res.redirect('/index');
+});
+
+router.get('/index', (req, res)=> {
+  res.render('shared/index');
+});
 
 router.get('/enquiries', baseController.getEnquiries);
 router.get('/about', baseController.getAbout);
