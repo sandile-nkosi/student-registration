@@ -3,10 +3,15 @@ label {
   margin-bottom: var(--space-2);
 }
 
-input, textarea {
+input, textarea, select, .checkbox {
   font: inherit;
   padding: var(--space-2);
   border-radius: var(--border-radius-small);
   border: none;
   width: 50%;
+}
+
+form hr {
+  border-color: var(--color-primary-400);
+  margin: var(--space-4);
 }

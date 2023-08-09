@@ -1,0 +1,25 @@
+h1 {
+text-align: center;
+}
+
+h2 {
+ text-align: center;
+}
+
+form#dashboard {
+  max-width: 25rem;
+  margin: var(--space-8) auto;
+  padding: var(--space-4);
+  background-color: var(--color-primary-100);
+  border-radius: var(--border-radius-medium);
+  text-align: center;
+}
+
+form#dashboard a{
+  color: var(--color-primary-200);
+}
+
+form#dashboard a:hover,
+form#dashboard a:active {
+  color: var(--color-primary-150);
+}

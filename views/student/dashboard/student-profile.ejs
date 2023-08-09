@@ -1,14 +1,18 @@
 <%- include('../../shared/includes/head', { pageTitle: 'Student Profile' }) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/dashboard.css">
 </head>
   <body>
   <%- include('../../shared/includes/header') %>
     <main>
       <h1>Student profile</h1>
       <h2>Biographical details</h2>
-      <form action="dashboard/edit" method="POST">
+      <form id="dashboard" action="dashboard/edit" method="POST">
         <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
-        <img src="" alt="student-image">
-        <input type="file" id="image" name="image">
+        <p>
+          <img src="" alt="student-image">
+          <input type="file" id="image" name="image" accept="image/png,image/jpg">
+        </p>        
         <p>
           <label for="nationality">Nationality</label>
           <input type="text" name="nationality" id="nationality" required>
@@ -44,7 +48,7 @@
         </p>  
         <p>
           <label for="disability">Disability</label>
-          <input type="checkbox" id="disability" name="disability" value="true">
+          <input class="checkbox" type="checkbox" id="disability" name="disability" value="true">
         </p>
         <hr>
         <p>
@@ -57,12 +61,13 @@
         </p>
         <p>
           <label for="popiAct">Agree to POPI Act</label>
-          <input type="checkbox" id="popiAct" name="popiAct" value="true">
+          <input class="checkbox" type="checkbox" id="popiAct" name="popiAct" value="true">
         </p>
         <button type="button" class="btn btn-alt">Edit Details</button>
         <button class="btn">Save</button>
       </form>
-      <h2>Course Details</h2>
+      <form id="dashboard">
+        <h2>Course Details</h2>
         <p>
           <label for="courseId">ID</label>
           <input type="text" name="courseId" id="courseId"> 
@@ -70,6 +75,7 @@
         <p>
           <label for="courseName">Name</label>
           <input type="text" name="courseName" id="courseName"> 
-        </p>
+        </p> 
+      </form>
     </main>
 <%- include('../../shared/includes/footer') %>
