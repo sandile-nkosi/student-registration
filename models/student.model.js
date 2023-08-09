@@ -3,20 +3,20 @@ const bcrypt = require('bcryptjs');
 const db = require('../data/database');
 
 class Student {
-  constructor(email, password) {
-    this.email = email,
+  constructor(studentNum, password) {
+    this.studentNum = studentNum,
     this.password = password
   }
 
   getExistingStudentEmail() {
-    return db.getDb().collection('students').findOne({ email: this.email });
+    return db.getDb().collection('students').findOne({ studentNum: this.studentNum });
   }
 
   async signup() {
     const hashedPassword = await bcrypt.hash(this.password, 12);
 
     await db.getDb().collection('students').insertOne({
-      email: this.email,
+      studentNum: this.studentNum,
       password: hashedPassword
     });
   };
