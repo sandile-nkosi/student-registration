@@ -39,7 +39,7 @@ async function login(req, res, next) {
   const student = new Student(req.body.email, req.body.password);
   let existingStudent;
   try {
-    existingStudent = await student.getExistingStudentEmail(); 
+    existingStudent = await student.getExistingStudentNumber(); 
   } catch (error) {
     next(error);
     return;

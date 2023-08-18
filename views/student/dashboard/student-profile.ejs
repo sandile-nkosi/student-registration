@@ -7,8 +7,7 @@
     <main>
       <h1>Student profile</h1>
       <h2>Biographical details</h2>
-      <form id="dashboard" action="dashboard/edit" method="POST">
-        <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+      <form id="dashboard" action="dashboard/edit?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
         <p>
           <img src="" alt="student-image">
           <input type="file" id="image" name="image" accept="image/png,image/jpg">
@@ -57,7 +56,7 @@
         </p>
         <p>
           <label for="email">Cellphone</label>
-          <input type="email" name="email" id="email" required>  
+          <input type="text" name="email" id="email" required>  
         </p>
         <p>
           <label for="popiAct">Agree to POPI Act</label>

@@ -8,7 +8,7 @@ class Student {
     this.password = password
   }
 
-  getExistingStudentEmail() {
+  getExistingStudentNumber() {
     return db.getDb().collection('students').findOne({ studentNum: this.studentNum });
   }
 
