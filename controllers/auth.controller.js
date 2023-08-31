@@ -8,7 +8,7 @@ function getSignup(req, res) {
 
 async function signup(req, res, next) {
   const student = new Student(
-    req.body.email,
+    req.body.studentNum,
     req.body.password
   );
 
@@ -28,7 +28,7 @@ function getLogin(req, res) {
 
   if(!sessionData) {
     sessionData = {
-      email: '',
+      studentNum: '',
       password: ''
     }
   }
@@ -36,7 +36,7 @@ function getLogin(req, res) {
 }
 
 async function login(req, res, next) {
-  const student = new Student(req.body.email, req.body.password);
+  const student = new Student(req.body.studentNum, req.body.password);
   let existingStudent;
   try {
     existingStudent = await student.getExistingStudentNumber(); 
@@ -47,7 +47,7 @@ async function login(req, res, next) {
   
   const sessionErrorData = {
     errorMessage: 'Invalid credentials - please double check your email and password!', 
-    email: student.email,
+    email: student.studentNum,
     password: student.password
   }
 
