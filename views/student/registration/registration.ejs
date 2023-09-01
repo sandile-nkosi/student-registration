@@ -6,10 +6,19 @@
       <h1>Student Registration</h1>
       <h2>Modules</h2>
       <section>
-        <ul>
-          
-          <li></li>
-        </ul>
+        <label for="year">Select year</label>
+        <select name="year" id="year">
+          <option value="year1">Year 1</option>
+          <option value="year2">Year 2</option>
+          <option value="year3">Year 3</option>
+          <option value="year4">Year 4</option>
+        </select>
+        <div class="modules">
+          <% for (const module of modules) {%>
+            <input type="checkbox" name="module" id="module" value="<%= module._id%>"/>
+            <label for="module"><%= module.moduleCode%></label> 
+          <% } %>
+      </div>
       </section>  
     </main>
 <%- include('../../shared/includes/footer') %>
