@@ -10,6 +10,10 @@ async function getRegistration (req, res) {
   res.render('student/registration/registration', { modules: modules });
 };
 
+function getPayment(req, res){
+  res.render('student/registration/payment');
+};
+
 function updateDashboard (req, res) {
   console.log(req.body);
   console.log(req.file);
@@ -20,5 +24,6 @@ function updateDashboard (req, res) {
 module.exports = {
   getDashboard: getDashboard,
   getRegistration: getRegistration,
-  updateDashboard: updateDashboard
+  updateDashboard: updateDashboard,
+  getPayment: getPayment
 };

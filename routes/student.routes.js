@@ -8,6 +8,8 @@ router.get('/dashboard', studentController.getDashboard);
 
 router.get('/registration', studentController.getRegistration);
 
+router.get('/payment', studentController.getPayment);
+
 router.post('/dashboard/edit'), imageUpload, studentController.updateDashboard;
 
 module.exports = router;
