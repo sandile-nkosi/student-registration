@@ -47,7 +47,7 @@ async function login(req, res, next) {
   
   const sessionErrorData = {
     errorMessage: 'Invalid credentials - please double check your email and password!', 
-    email: student.studentNum,
+    studentNum: student.studentNum,
     password: student.password
   }
 
