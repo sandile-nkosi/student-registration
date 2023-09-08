@@ -11,7 +11,9 @@ const errorHandler = require('./middlewares/error-handler');
 const checkAuthStatus = require('./middlewares/check-auth');
 const authRoutes = require('./routes/auth.routes');
 const studentRoutes = require('./routes/student.routes');
+const registrationRoutes = require('./routes/registration.routes');
 const baseRoutes = require('./routes/base.routes');
+const exp = require('constants');
 
 const app = express();
 
@@ -19,6 +21,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static('public'));
+app.use(express.static('student-data'));
 app.use(express.urlencoded({ extended: false }));
 
 const sessionConfig = createSessionConfig();
@@ -32,6 +35,7 @@ app.use(checkAuthStatus);
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use('/student', studentRoutes);
+app.use('/student', registrationRoutes);
 
 app.use(errorHandler);
 

@@ -1,4 +1,5 @@
 <%- include('../../shared/includes/head', { pageTitle: 'Student Registration' }) %>
+<script src="/scripts/module-selector.js" defer></script>
 </head>
   <body>
   <%- include('../../shared/includes/header') %>
@@ -8,15 +9,19 @@
       <section>
         <label for="year">Select year</label>
         <select name="year" id="year">
-          <option value="year1">Year 1</option>
-          <option value="year2">Year 2</option>
-          <option value="year3">Year 3</option>
-          <option value="year4">Year 4</option>
+          <option value="0">Year 1</option>
+          <option value="1">Year 2</option>
+          <option value="2">Year 3</option>
+          <option value="3">Year 4</option>
         </select>
         <div class="modules">
           <% for (const module of modules) {%>
-            <input type="checkbox" name="module" id="module" value="<%= module._id%>"/>
-            <label for="module"><%= module.moduleCode%></label> 
+            <ul>
+              <li>
+                <input type="checkbox" name="module" id="module" value="<%= module._id%>"/>
+                <label for="module"><%= module.moduleCode%></label>
+              </li>
+            </ul>        
           <% } %>
       </div>
       </section>  
