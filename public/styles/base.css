@@ -108,3 +108,7 @@ a {
 .alert p {
   margin: var(--space-2) 0;
 }
+
+.hidden {
+  display: none;
+}

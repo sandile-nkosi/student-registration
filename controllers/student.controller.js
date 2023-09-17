@@ -1,4 +1,5 @@
 const db = require('../data/database');
+const sessionData = require('../util/auth');
 
 function getDashboard (req, res) {
   res.render('student/dashboard/student-profile');

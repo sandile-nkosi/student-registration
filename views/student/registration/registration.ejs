@@ -6,24 +6,67 @@
     <main>
       <h1>Student Registration</h1>
       <h2>Modules</h2>
-      <section>
-        <label for="year">Select year</label>
-        <select name="year" id="year">
-          <option value="0">Year 1</option>
-          <option value="1">Year 2</option>
-          <option value="2">Year 3</option>
-          <option value="3">Year 4</option>
+
+      <section>  
+        <select id="yearSelector">
+          <option value="">Select a year</option>
+          <option value="year1">Year 1</option>
+          <option value="year2">Year 2</option>
+          <option value="year3">Year 3</option>
+          <option value="year4">Year 4</option>    
         </select>
-        <div class="modules">
-          <% for (const module of modules) {%>
-            <ul>
+
+        <div id="year1" class="hidden">
+          <ul>
+            <% for (const module of modules) { %>
+              <% if (module.year === 1) { %>
+                <li>
+                  <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>"> 
+                  <label for="<%= module.moduleCode%>"><%= module.moduleCode%></label>
+                </li>
+              <% } %>
+            <% } %>
+          </ul>
+        </div>
+        <div id="year2" class="hidden">
+          <ul>
+            <% for (const module of modules) { %>
+              <% if (module.year === 2) { %>
+                <li>
+                  <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>"> 
+                  <label for="<%= module.moduleCode%>"><%= module.moduleCode%></label>
+                </li>
+              <% } %>
+            <% } %>
+          </ul>
+        </div>
+        <div id="year3" class="hidden">
+          <ul>
+          <% for (const module of modules) { %>
+            <% if (module.year === 3) { %>
               <li>
-                <input type="checkbox" name="module" id="module" value="<%= module._id%>"/>
-                <label for="module"><%= module.moduleCode%></label>
+                <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>"> 
+                  <label for="<%= module.moduleCode%>"><%= module.moduleCode%></label>
               </li>
-            </ul>        
+            <% } %>
           <% } %>
-      </div>
-      </section>  
+          </ul>
+        </div>
+        <div id="year4" class="hidden">
+          <ul>
+            <% for (const module of modules) { %>
+              <% if (module.year === 4) { %>
+                <li>
+                  <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>"> 
+                  <label for="<%= module.moduleCode%>"><%= module.moduleCode%></label>
+                </li>
+              <% } %>
+            <% } %>
+          </ul>
+        </div>
+
+      </section>
+
     </main>
+
 <%- include('../../shared/includes/footer') %>
