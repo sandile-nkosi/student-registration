@@ -1,8 +1,13 @@
+const { ObjectId } = require('mongodb');
 const db = require('../data/database');
-const sessionData = require('../util/auth');
 
-function getDashboard (req, res) {
-  res.render('student/dashboard/student-profile');
+async function getDashboard (req, res) {
+  const studentId = new ObjectId(req.session.uid);
+  const student = await db.getDb().collection('students').findOne({_id: studentId});
+
+  console.log(student);
+
+  res.render('student/dashboard/student-profile', {student: student});
 };
 
 

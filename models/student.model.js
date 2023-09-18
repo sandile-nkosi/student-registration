@@ -6,17 +6,6 @@ class Student {
   constructor(studentNum, password) {
     this.studentNum = studentNum,
     this.password = password
-    // this.idNum = idNum,
-    // this.nationality = nationality,
-    // this.email = email,
-    // this.imageUrl = imageUrl,
-    // this.fullName = fullName,
-    // this.gender = gender,
-    // this.lang = lang,
-    // this.contactNum = contactNum,
-    // this.address = address,
-    // this.courseId = courseId,
-    // this.modules = modules
   }
 
   getExistingStudentNumber() {
