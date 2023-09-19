@@ -1,18 +1,29 @@
 <%- include('../shared/includes/head', { pageTitle: 'North-West University' }) %>
+<link rel="stylesheet" href="styles/index.css">
 </head>
   <body>
   <%- include('../shared/includes/header') %>
     <main>
       <h1>North-West University Student Registration App</h1>
       <p>For students - by students</p>
-
-      <% if (!locals.isAuth) { %>
-        <p><a class="btn" href="/login">Start Here</a></p>
-      <% } %>
-
-      <% if (locals.isAuth) { %>
-        <p><a class="btn" href="/student/dashboard">Go To Dashboard</a></p>
-      <% } %>
+ 
+  <h3>WELCOME</h3>
+  <div class="container">
+  
+    <div class="line"></div>
+  
+    <img src="images/nwu-logo.png" alt="NWU logo" width="50px" align="centre">
+  
+    <% if (!locals.isAuth) { %>
+      <p><a class="btn" href="/login">Start Here</a></p>
+    <% } %>
+    
+    <% if (locals.isAuth) { %>
+          <p><a class="btn" href="/student/dashboard">Go To Dashboard</a></p>
+    <% } %>
+  
+  </div>
+        
 
   </main>
 <%- include('../shared/includes/footer') %>

@@ -1,0 +1,43 @@
+img {
+    width: 250px;
+    height: 140px;
+    padding-right: 90px;
+}
+.container {
+    width: 600px;
+    height: 400px;
+    border: #700579;
+    border-radius: 10px;
+    background-color: #C6E9F4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+}
+
+.line {
+    border-left: 2px solid;
+    height: 200px;
+    position: absolute;
+    left: 50%;
+
+}
+
+
+
+h3 {
+    text-align: center;
+}
+
+.btn{
+    width: 100px;
+    height: 40px;
+    margin-left: 50px;  
+}
+
+
+
+
+
+
