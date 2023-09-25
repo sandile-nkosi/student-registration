@@ -26,6 +26,10 @@
         <input type="checkbox" id="bursary" value="1">
         <label for="Bursary" id="bursary">Bursary/Nsfas</label>
         </p>
+
+        <p>
+          <input type="file" class="hidden" id="documents">
+        </p>
         
 
 
@@ -37,6 +41,7 @@
                       <% for (const module of modules) { %>
                         <% if (module.year===1) { %>
                             <tr>
+                              <td>
                               <ul>
                                 <li>
                                     <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>">
@@ -45,6 +50,7 @@
                                     </label>
                                 </li>
                               </ul>
+                              </td>
                             </tr>
                           <% } %>
                             <% } %>
@@ -55,12 +61,14 @@
         </div>
 
                 <div id="year2" class="hidden">
+                  <div class="table-container">
                   <table>
                     <thead>
                     <tbody>
                       <% for (const module of modules) { %>
                         <% if (module.year===2) { %>
                           <tr>
+                            <td>
                             <ul>
                               <li>
                                 <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>">
@@ -69,21 +77,25 @@
                                 </label>
                               </li>
                             </ul>
+                            </td>
                           </tr>
                           <% } %>
                             <% } %>
                     </tbody>
                     </thead>
                   </table>
+                  </div>
                 </div>
 
               <div id="year3" class="hidden">
+                <div class="table-container">
                 <table>
                   <thead>
                   <tbody>
                     <% for (const module of modules) { %>
                       <% if (module.year===3) { %>
                         <tr>
+                          <td>
                           <ul>
                             <li>
                               <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>">
@@ -92,21 +104,25 @@
                               </label>
                             </li>
                           </ul>
+                          </td>
                         </tr>
                         <% } %>
                           <% } %>
                   </tbody>
                   </thead>
                 </table>
+                </div>
               </div>
 
                       <div id="year4" class="hidden">
+                        <div class="table-container">
                         <table>
                           <thead>
                           <tbody>
                             <% for (const module of modules) { %>
                               <% if (module.year===4) { %>
                                 <tr>
+                                  <td>
                                   <ul>
                                     <li>
                                       <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>">
@@ -115,12 +131,14 @@
                                       </label>
                                     </li>
                                   </ul>
+                                  </td>
                                 </tr>
                                 <% } %>
                                   <% } %>
                           </tbody>
                           </thead>
                         </table>
+                        </div>
                       </div>
       </section>
     </main>

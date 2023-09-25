@@ -3,6 +3,9 @@ const year1Element = document.getElementById("year1");
 const year2Element = document.getElementById("year2");
 const year3Element = document.getElementById("year3");
 const year4Element = document.getElementById("year4");
+const documentUploadElement = document.getElementById("documents");
+const bursaryElement = document.getElementById("bursary");
+
 
 yearSelector.addEventListener("change", ()=> {
   if (yearSelector.value === "year1") {
@@ -27,3 +30,15 @@ yearSelector.addEventListener("change", ()=> {
     year4Element.classList.remove("hidden");
   }
 });
+
+bursaryElement.addEventListener("change", ()=> {
+  if(bursaryElement.value == 1) {
+     alert("checked");
+    documentUploadElement.classList.remove("hidden");
+
+  } else{
+
+     alert(" not checked");
+     documentUploadElement.classList.add("hidden");
+  }
+})

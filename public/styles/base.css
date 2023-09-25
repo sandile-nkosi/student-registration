@@ -33,6 +33,7 @@ body {
   background-color: var(--colour-primary-50);
   color: var(--color-grey-700);
   margin: 0;
+  margin-bottom: 100px;
 }
 
 main {
@@ -111,4 +112,7 @@ a {
 
 .hidden {
   display: none;
+}
+img{
+  margin-bottom: 30px;
 }
