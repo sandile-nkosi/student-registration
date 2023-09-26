@@ -5,8 +5,6 @@ async function getDashboard (req, res) {
   const studentId = new ObjectId(req.session.uid);
   const student = await db.getDb().collection('students').findOne({_id: studentId});
 
-  console.log(student);
-
   res.render('student/dashboard/student-profile', {student: student});
 };
 
@@ -15,11 +13,16 @@ function getPayment(req, res){
   res.render('student/registration/payment');
 };
 
-function updateDashboard (req, res) {
-  console.log(req.body);
-  console.log(req.file);
+async function updateDashboard (req, res) {
+  const studentId = new ObjectId(req.session.uid);
+  const result = await db.getDb().collection('students').updateOne({_id: studentId}, { $set: { 
+    firstName: req.body.firstName,
+    maritalStatus: req.body.maritalStatus
+   } });
 
-  res.redirect('/dashboard');
+   console.log(result);
+
+  res.redirect('student/dashboard');
 };
 
 module.exports = {

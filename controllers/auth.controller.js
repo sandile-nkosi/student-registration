@@ -75,7 +75,7 @@ async function login(req, res, next) {
 
 function logout(req, res) {
   authUtil.destroyUserAuthSession(req);
-  res.redirect('/login');
+  res.redirect('/');
 }
 
 module.exports = {
