@@ -8,6 +8,7 @@ const cancelEditBtnElement = document.getElementById('cancelEdit');
 function openStudentEdit(){
   studentOverlayElement.style.display = 'block';
   backdropElement.style.display = 'block';
+
 };
 
 function closeStudentEdit(){

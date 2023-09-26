@@ -13,16 +13,15 @@ function getPayment(req, res){
   res.render('student/registration/payment');
 };
 
-async function updateDashboard (req, res) {
+async function updateDashboard (req, res, next) {
   const studentId = new ObjectId(req.session.uid);
   const result = await db.getDb().collection('students').updateOne({_id: studentId}, { $set: { 
     firstName: req.body.firstName,
-    maritalStatus: req.body.maritalStatus
    } });
 
    console.log(result);
 
-  res.redirect('student/dashboard');
+  res.redirect('/');
 };
 
 module.exports = {

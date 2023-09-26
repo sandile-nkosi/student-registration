@@ -18,12 +18,29 @@
       
       <section>
         <aside class="modal" id="edit-overlay">     
-          <form action="..." method="POST">
+          <form action="/dashboard/<%= student._id  %>" method="POST" enctype="multipart/form-data">
             <div class="form-control">
               <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
               <p>
+                <label for="image">Profile Image</label>
+                <input type="file" id="image">
+              </p>
+              
+              <p>
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName" id="firstName" value="<%= student.firstName %>" required>  
+              </p>
+              <p>
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName" value="<%= student.lastName %>" required>  
+              </p>
+              <p>
+                <label for="contact">Contact</label>
+                <input type="text" name="contact" id="contact" value="<%= student.contact %>" required>  
+              </p>
+              <p>
+                <label for="email">E-Mail</label>
+                <input type="email" name="email" id="contact" value="<%= student.email %>" required>  
               </p>
               <button type="button" class="btn btn-alt" id="cancelEdit">Cancel</button> 
               <button type="submit" class="btn">Submit</button>
