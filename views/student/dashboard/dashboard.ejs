@@ -1,0 +1,53 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Student Profile' }) %>
+<link rel="stylesheet" href="/styles/forms.css">
+<link rel="stylesheet" href="/styles/dashboard.css">
+<link rel="stylesheet" href="/styles/forms.css">
+<script src="/scripts/dashboard.js" defer></script>
+</head>
+  <body>
+    <div id="backdrop"></div>
+  <%- include('../../shared/includes/header') %>
+    <main>
+      <section>
+        <h1>Student profile</h1>
+        <img src="/images/example.jpg" alt="" height="320" width="240">
+        <h3>Welcome <%= student.firstName %></h3>
+      </section>
+
+      <button class="btn btn-alt"><a href="/student/update-dashboard/<%= student._id  %>">Edit</a></button>
+      
+      <section>
+        <aside class="modal" id="edit-overlay">     
+          <form action="/student/dashboard/update?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+            <p><%= locals.csrfToken  %></p>
+            <div class="form-control">
+              <p>
+                <label for="image">Image</label>
+                <input type="file" id="image" name="image" accept="image/png,image/jpg">
+              </p>
+              
+              <p>
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName" value="<%= student.firstName %>" required>  
+              </p>
+              <p>
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName" value="<%= student.lastName %>" required>  
+              </p>
+              <p>
+                <label for="contact">Contact</label>
+                <input type="text" name="contact" id="contact" value="<%= student.contact %>" required>  
+              </p>
+              <p>
+                <label for="email">E-Mail</label>
+                <input type="email" name="email" id="email" value="<%= student.email %>" required>  
+              </p>
+              <button type="button" class="btn btn-alt" id="cancelEdit">Cancel</button> 
+              <button type="submit" class="btn">Submit</button>
+            </div>
+          </form>
+        </aside>
+      </section>
+      
+    </main>
+<%- include('../../shared/includes/footer') %>

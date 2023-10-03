@@ -6,8 +6,144 @@
   <body>
   <%- include('../../shared/includes/header') %>
     <main>
-      <h1>Student profile</h1>
-      <img src="/images/example.jpg" alt="" height="320" width="240">
-      <h3>User: <%= student.name %> is logged in</h3>
+      <h2>Student Profile</h2>
+      
+      
+      <section>
+      
+        <div class="rt-container">
+          <div class="col-rt-12">
+            <div class="Scriptcontent">
+              <!-- Student Profile -->
+              <div class="student-profile py-4">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="card">
+                        <div class="card-header">
+                          <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp">
+                          <h3>
+                            <%= student.firstName %>
+                          </h3>
+                          
+                        </div>
+                        <div class="card-body">
+                          <p><strong>Student Number:</strong> 12345678</p>
+                          <p><strong>Course:</strong> BCom Information Systems</p>
+                          <p><strong>Year level:</strong> 3</p>
+                          <p><strong>Curriculum Code:</strong> HX001</p>
+                          <p><strong>Curriculum:</strong> Extended</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <div class="card">
+                        <div class="card-header">
+                          <h3>Personal Information</h3>
+                        </div>
+                        <div class="card-body">
+                          <table>
+                            <tr>
+                              <th>Title</th>
+                              <td>Mr</td>
+                            </tr>
+                            <tr>
+                              <th>First names</th>
+                              <td>John</td>
+                            </tr>
+                            <tr>
+                              <th>Preferred name</th>
+                              <td>John</td>
+                            </tr>
+                            <tr>
+                              <th>Last Name</th>
+                              <td>Doe</td>
+                            </tr>
+                            <tr>
+                              <th>Marital status</th>
+                              <td>Single</td>
+                            </tr>
+      
+                            <tr>
+                              <th>Nationality</th>
+                              <td>South African</td>
+                            </tr>
+                            <tr>
+                              <th>ID number</th>
+                              <td>000000000000000</td>
+                            </tr>
+                            <tr>
+                              <th>Date of Birth</th>
+                              <td>2000-04-05</td>
+                            </tr>
+                            <tr>
+                              <th>Home language</th>
+                              <td>IsiZulu</td>
+                            </tr>
+                            <tr>
+                              <th>Address</th>
+                              <td>130 Lang Street,Rosettenvile, JHB 2190</td>
+      
+                            </tr>
+      
+                            <!-- Add more rows for personal information here -->
+                          </table>
+                        </div>
+                      </div>
+      
+                      <div class="card">
+                        <div class="card-header">
+                          <h3>Contact Details</h3>
+                        </div>
+                        <div class="card-body">
+                          <table>
+                            <tr>
+                              <th>Cellphone</th>
+                              <td>0000000000</td>
+                            </tr>
+                            <tr>
+                              <th>Alternative number</th>
+                              <td>0000000000</td>
+                            </tr>
+                            <tr>
+                              <th>Work number</th>
+                              <td>0000000000</td>
+                            </tr>
+                            <tr>
+                              <th>Email</th>
+                              <td>johndoe@gmail.com</td>
+                            </tr>
+                            <tr>
+                              <th>Account email</th>
+                              <td>stevedoe@gmail.com</td>
+                            </tr>
+                            <tr>
+                              <th>Emergency number</th>
+                              <td>0000000000</td>
+                            </tr>
+      
+      
+      
+                            <!-- Add more rows for contact details here -->
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="Update">
+        <ul>
+          <li><a href="" title="">Update Information</a></li>
+        </ul>
+      </div>
+      <br>
+      <br>
+      <!-- Add more sections or elements here -->
+
     </main>
 <%- include('../../shared/includes/footer') %>
