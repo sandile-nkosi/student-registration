@@ -19,7 +19,7 @@
                     <div class="col-lg-4">
                       <div class="card">
                         <div class="card-header">
-                          <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp">
+                          <img class="profile_img" src="<%= student.image%>" alt="student profile image">
                           <h3>
                             Hello <%= student.firstName %>
                           </h3>
@@ -55,7 +55,7 @@
                             </tr>
                             <tr>
                               <th>Marital status</th>
-                              <td>Single</td>
+                              <td><%= student.maritalStatus %></td>
                             </tr>
       
                             <tr>
@@ -64,11 +64,7 @@
                             </tr>
                             <tr>
                               <th>ID number</th>
-                              <td>000000000000000</td>
-                            </tr>
-                            <tr>
-                              <th>Date of Birth</th>
-                              <td>2000-04-05</td>
+                              <td><%= student.idNum %></td>
                             </tr>
                             <tr>
                               <th>Home language</th>
@@ -90,28 +86,20 @@
                         <div class="card-body">
                           <table>
                             <tr>
-                              <th>Cellphone</th>
-                              <td>0000000000</td>
+                              <th>Contact</th>
+                              <td><%= student.contact %></td>
                             </tr>
                             <tr>
-                              <th>Alternative number</th>
-                              <td>0000000000</td>
+                              <th>E-Mail</th>
+                              <td><%= student.email %></td>
                             </tr>
                             <tr>
-                              <th>Work number</th>
-                              <td>0000000000</td>
-                            </tr>
-                            <tr>
-                              <th>Email</th>
-                              <td>johndoe@gmail.com</td>
-                            </tr>
-                            <tr>
-                              <th>Account email</th>
-                              <td>stevedoe@gmail.com</td>
+                              <th>Emergency contact</th>
+                              <td><%= student.nextKin %></td>
                             </tr>
                             <tr>
                               <th>Emergency number</th>
-                              <td>0000000000</td>
+                              <td><%= student.emergencyContact %></td>
                             </tr>
                           </table>
                         </div>
@@ -135,10 +123,9 @@
       <section>
         <aside class="modal" id="edit-overlay">     
           <form action="/student/update-dashboard/?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
-            <p><%= locals.csrfToken  %></p>
             <div class="form-control">
               <p>
-                <label for="image">Image</label>
+                <label for="image">Profile Image</label>
                 <input type="file" id="image" name="image" accept="image/png,image/jpg">
               </p>
               

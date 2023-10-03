@@ -13,7 +13,6 @@ const authRoutes = require('./routes/auth.routes');
 const studentRoutes = require('./routes/student.routes');
 const registrationRoutes = require('./routes/registration.routes');
 const baseRoutes = require('./routes/base.routes');
-const exp = require('constants');
 
 const app = express();
 
