@@ -33,7 +33,7 @@ class Student {
       error.code = 404;
       throw error;
     }
-    const student = await db.getDb.collection('students').findOne({ _id: studId});
+    const student = await db.getDb().collection('students').findOne({ _id: studId});
 
     if (!student){
       const error = new Error('Student does not exist');

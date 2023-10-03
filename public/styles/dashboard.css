@@ -52,3 +52,72 @@ form#dashboard a:active {
     width: 40rem;
   }
 }
+
+/* additionals */
+
+  .rt-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+
+  .card-header {
+    background-color: rgb(101, 104, 104);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .Update {
+    cursor: pointer;
+    font: inherit;
+    margin-top: 1.5rem;
+    padding: var(--space-2) var(--space-6);
+
+    size: 1.5rem;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  
+  /* Profile image styles */
+  .profile_img {
+    max-width: 20%;
+    height: 150px;
+    margin-bottom: 1px;
+    cursor: pointer;
+  }
+  
+  
+  /* Table styles */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid #ccc;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }

@@ -1,7 +1,7 @@
 const studentOverlayElement = document.getElementById('edit-overlay');
 const backdropElement = document.getElementById('backdrop');
 
-const editStudentBtnElement = document.getElementById('editStudentBtn');
+const editStudentElement = document.getElementById('editStudent');
 const cancelEditBtnElement = document.getElementById('cancelEdit');
 
 
@@ -16,6 +16,6 @@ function closeStudentEdit(){
   backdropElement.style.display = 'none';
 }
 
-editStudentBtn.addEventListener('click', openStudentEdit);
+editStudentElement.addEventListener('click', openStudentEdit);
 cancelEditBtnElement.addEventListener('click', closeStudentEdit);
 backdropElement.addEventListener('click', closeStudentEdit);

@@ -11,9 +11,8 @@
         <h1>Student profile update</h1>
       </section>
       <section>    
-          <form action="/student/dashboard/update?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
-            <p><%= locals.csrfToken  %></p>
-            <div class="form-control">
+          <form action="/student/update-dashboard/?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+            <div class="form-control"> 
               <p>
                 <label for="image">Image</label>
                 <input type="file" id="image" name="image" accept="image/png,image/jpg">
@@ -35,7 +34,7 @@
                 <label for="email">E-Mail</label>
                 <input type="email" name="email" id="email" value="<%= student.email %>" required>  
               </p>
-              <button type="button" class="btn btn-alt" id="cancelEdit">Cancel</button> 
+              <a class="btn btn-alt" href="../dashboard">Cancel</a> 
               <button type="submit" class="btn">Submit</button>
             </div>
           </form>

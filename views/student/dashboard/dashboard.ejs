@@ -10,15 +10,131 @@
     <main>
       <section>
         <h1>Student profile</h1>
-        <img src="/images/example.jpg" alt="" height="320" width="240">
-        <h3>Welcome <%= student.firstName %></h3>
-      </section>
-
-      <button class="btn btn-alt"><a href="/student/update-dashboard/<%= student._id  %>">Edit</a></button>
+        <div class="rt-container">
+          <div class="col-rt-12">
+            <div class="Scriptcontent">
+              <div class="student-profile py-4">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="card">
+                        <div class="card-header">
+                          <img class="profile_img" src="https://source.unsplash.com/600x300/?student" alt="student dp">
+                          <h3>
+                            Hello <%= student.firstName %>
+                          </h3>
+                          
+                        </div>
+                        <div class="card-body">
+                          <p><strong>Student Number:</strong> <%= student.studentNum %></p>
+                          <p><strong>Course:</strong> BCom Information Systems</p>
+                          <p><strong>Year level:</strong> 3</p>
+                          <p><strong>Curriculum Code:</strong> HX001</p>
+                          <p><strong>Curriculum:</strong> Extended</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <div class="card">
+                        <div class="card-header">
+                          <h3>Personal Information</h3>
+                        </div>
+                        <div class="card-body">
+                          <table>
+                            <tr>
+                              <th>Title</th>
+                              <td>Mr</td>
+                            </tr>
+                            <tr>
+                              <th>First names</th>
+                              <td><%= student.firstName %></td>
+                            </tr>
+                            <tr>
+                              <th>Last Name</th>
+                              <td><%= student.lastName %></td>
+                            </tr>
+                            <tr>
+                              <th>Marital status</th>
+                              <td>Single</td>
+                            </tr>
       
+                            <tr>
+                              <th>Nationality</th>
+                              <td><%= student.nationality %></td>
+                            </tr>
+                            <tr>
+                              <th>ID number</th>
+                              <td>000000000000000</td>
+                            </tr>
+                            <tr>
+                              <th>Date of Birth</th>
+                              <td>2000-04-05</td>
+                            </tr>
+                            <tr>
+                              <th>Home language</th>
+                              <td><%= student.homeLang %></td>
+                            </tr>
+                            <tr>
+                              <th>Address</th>
+                              <td><%= student.address %></td>
+      
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+      
+                      <div class="card">
+                        <div class="card-header">
+                          <h3>Contact Details</h3>
+                        </div>
+                        <div class="card-body">
+                          <table>
+                            <tr>
+                              <th>Cellphone</th>
+                              <td>0000000000</td>
+                            </tr>
+                            <tr>
+                              <th>Alternative number</th>
+                              <td>0000000000</td>
+                            </tr>
+                            <tr>
+                              <th>Work number</th>
+                              <td>0000000000</td>
+                            </tr>
+                            <tr>
+                              <th>Email</th>
+                              <td>johndoe@gmail.com</td>
+                            </tr>
+                            <tr>
+                              <th>Account email</th>
+                              <td>stevedoe@gmail.com</td>
+                            </tr>
+                            <tr>
+                              <th>Emergency number</th>
+                              <td>0000000000</td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="Update">
+        <p>
+          <a class="btn btn-alt" id="editStudent">Update Information</a>
+        </p>
+      </div>
+      <br>
+      <br>
+
       <section>
         <aside class="modal" id="edit-overlay">     
-          <form action="/student/dashboard/update?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+          <form action="/student/update-dashboard/?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
             <p><%= locals.csrfToken  %></p>
             <div class="form-control">
               <p>
@@ -42,7 +158,7 @@
                 <label for="email">E-Mail</label>
                 <input type="email" name="email" id="email" value="<%= student.email %>" required>  
               </p>
-              <button type="button" class="btn btn-alt" id="cancelEdit">Cancel</button> 
+              <a class="btn btn-alt" id="cancelEdit">Cancel</a> 
               <button type="submit" class="btn">Submit</button>
             </div>
           </form>
