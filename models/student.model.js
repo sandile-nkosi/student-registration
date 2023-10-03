@@ -1,5 +1,5 @@
+const mongodb = require('mongodb');
 const bcrypt = require('bcryptjs');
-
 const db = require('../data/database');
 
 class Student {
@@ -24,6 +24,24 @@ class Student {
   hasMatchingPassword(hashedPassword) {
     return bcrypt.compare(this.password, hashedPassword);
   }
+
+  static async findById(studentId){
+    let studId;
+    try {
+      studId = new mongodb.ObjectId(studentId);
+    } catch (error) {
+      error.code = 404;
+      throw error;
+    }
+    const student = await db.getDb.collection('students').findOne({ _id: studId});
+
+    if (!student){
+      const error = new Error('Student does not exist');
+      error.code = 404;
+      throw error;
+    }
+    return student;
+  };
 }
 
 module.exports = Student;

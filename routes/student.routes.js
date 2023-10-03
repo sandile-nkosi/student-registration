@@ -5,7 +5,10 @@ const imageUpload = require('../middlewares/image-upload');
 const router = express.Router();
 
 router.get('/dashboard', studentController.getDashboard);
-router.post('/dashboard/:id'), imageUpload, studentController.updateDashboard;
+
+router.get('/update-dashboard/:id', studentController.getUpdateDashboard);
+
+router.post('/update-dashboard/:id', imageUpload, studentController.updateDashboard);
 
 router.get('/payment', studentController.getPayment);
 
