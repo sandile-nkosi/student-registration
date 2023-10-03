@@ -1,5 +1,6 @@
 <%- include('../shared/includes/head', { pageTitle: 'North-West University' }) %>
 <link rel="stylesheet" href="styles/index.css">
+<link rel="icon" type="image/png" href="images/nwu-logo.png">
 </head>
   <body>
   <%- include('../shared/includes/header') %>
@@ -12,7 +13,7 @@
   
     <div class="line"></div>
   
-    <img src="images/nwu-logo.png" alt="NWU logo" width="50px" align="centre">
+    <img src="images/nwu-logo.png" alt="NWU logo" width="50px" align="centre" 
   
     <% if (!locals.isAuth) { %>
       <p><a class="btn" href="/login">Start Here</a></p>

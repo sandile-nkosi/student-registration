@@ -112,6 +112,7 @@ a {
 
 .hidden {
   display: none;
+  visibility: hidden;
 }
 img{
   margin-bottom: 30px;

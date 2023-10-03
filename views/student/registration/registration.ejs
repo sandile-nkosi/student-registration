@@ -1,6 +1,7 @@
 <%- include('../../shared/includes/head', { pageTitle: 'Student Registration' }) %>
 <script src="/scripts/module-selector.js" defer></script>
 <link rel="stylesheet" href="/styles/reg.css">
+<link rel="icon" type="image/png" href="images/nwu-logo.png">
 </head>
   <body>
   <%- include('../../shared/includes/header') %>
@@ -24,7 +25,7 @@
 
         <p>
         <input type="checkbox" id="bursary" value="1">
-        <label for="Bursary" id="bursary">Bursary/Nsfas</label>
+        <label for="bursary" id="bursary">Bursary/Nsfas</label>
         </p>
 
         <p>
@@ -37,6 +38,7 @@
           <div class="table-container">
           <table>
             <thead>
+              <th> Select Modules:
               <tbody>
                       <% for (const module of modules) { %>
                         <% if (module.year===1) { %>
@@ -55,6 +57,7 @@
                           <% } %>
                             <% } %>
               </tbody>
+              </th>
             </thead>
           </table>
           </div>
@@ -64,6 +67,7 @@
                   <div class="table-container">
                   <table>
                     <thead>
+                      <th>Select Modules:
                     <tbody>
                       <% for (const module of modules) { %>
                         <% if (module.year===2) { %>
@@ -83,6 +87,7 @@
                             <% } %>
                     </tbody>
                     </thead>
+                    </th>
                   </table>
                   </div>
                 </div>
@@ -91,6 +96,7 @@
                 <div class="table-container">
                 <table>
                   <thead>
+                    <th>Select Modules:
                   <tbody>
                     <% for (const module of modules) { %>
                       <% if (module.year===3) { %>
@@ -109,6 +115,7 @@
                         <% } %>
                           <% } %>
                   </tbody>
+                  </th>
                   </thead>
                 </table>
                 </div>
@@ -118,6 +125,7 @@
                         <div class="table-container">
                         <table>
                           <thead>
+                            <th>Select Modules:
                           <tbody>
                             <% for (const module of modules) { %>
                               <% if (module.year===4) { %>
@@ -136,6 +144,7 @@
                                 <% } %>
                                   <% } %>
                           </tbody>
+                          </th>
                           </thead>
                         </table>
                         </div>
