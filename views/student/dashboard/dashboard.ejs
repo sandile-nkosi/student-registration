@@ -19,7 +19,7 @@
                     <div class="col-lg-4">
                       <div class="card">
                         <div class="card-header">
-                          <img class="profile_img" src="<%= student.image%>" alt="student profile image">
+                          <img class="profile_img" src="<%= student.imagePath%>" alt="student profile image">
                           <h3>
                             Hello <%= student.firstName %>
                           </h3>
@@ -125,10 +125,11 @@
           <form action="/student/update-dashboard/?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
             <div class="form-control">
               <p>
-                <label for="image">Profile Image</label>
                 <input type="file" id="image" name="image" accept="image/png,image/jpg">
               </p>
-              
+              <p>
+                <input type="hidden" name="old_image" value="<%= student.imagePath %>">
+              </p>
               <p>
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName" id="firstName" value="<%= student.firstName %>" required>  

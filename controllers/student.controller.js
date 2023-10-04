@@ -23,11 +23,13 @@ async function getUpdateDashboard (req, res, next){
 
 async function updateDashboard (req, res, next) {
   const id = new ObjectId(req.session.uid)
+  const uploadedImage = req.file;
   try {
+    
     const result = await db.getDb().collection('students').updateOne({_id: id}, { $set: { 
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    imagePath: req.file.path
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      imagePath: uploadedImage.path
     }});
   } catch (error) {
     next(error);
