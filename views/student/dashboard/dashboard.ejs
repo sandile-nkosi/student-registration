@@ -1,4 +1,5 @@
 <%- include('../../shared/includes/head', { pageTitle: 'Student Profile' }) %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/styles/forms.css">
 <link rel="stylesheet" href="/styles/dashboard.css">
 <link rel="stylesheet" href="/styles/forms.css">
@@ -19,7 +20,17 @@
                     <div class="col-lg-4">
                       <div class="card">
                         <div class="card-header">
-                          <img class="profile_img" src="<%= student.imagePath%>" alt="student profile image">
+                          <img class="profile_image" src="<%= student.imagePath%>" alt="student profile image">
+                          <form action="/student/update-dashboard-image/?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+                            <p class="image_change">
+                            <label for="image" class="custom-file-upload">
+                              <i class="fa fa-cloud-upload"></i> Change Image
+                          </label>
+                          <input id="image" name="image" type="file"/ accept="image/png,image/jpg" onchange="this.form.submit()">  
+                          <input type="hidden" name="old-image" id="old-image" value="<%= student.imagePath%>">
+                          </p>
+                          </form>
+                          
                           <h3>
                             Hello <%= student.firstName %>
                           </h3>
@@ -27,10 +38,10 @@
                         </div>
                         <div class="card-body">
                           <p><strong>Student Number:</strong> <%= student.studentNum %></p>
-                          <p><strong>Course:</strong> BCom Information Systems</p>
-                          <p><strong>Year level:</strong> 3</p>
-                          <p><strong>Curriculum Code:</strong> HX001</p>
-                          <p><strong>Curriculum:</strong> Extended</p>
+                          <p><strong>Course:</strong> <%= student.course.name %> </p>
+                          <p><strong>Year level:</strong> <%= student.course.year %> </p>
+                          <p><strong>Curriculum Code:</strong> <%= student.course.code %> </p>
+                          <p><strong>Curriculum:</strong> <%= student.course.curriculum %> </p>
                         </div>
                       </div>
                     </div>
@@ -122,11 +133,8 @@
 
       <section>
         <aside class="modal" id="edit-overlay">     
-          <form action="/student/update-dashboard/?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+          <form action="/student/update-dashboard/?_csrf=<%= locals.csrfToken %>" method="POST">
             <div class="form-control">
-              <p>
-                <input type="file" id="image" name="image" accept="image/png,image/jpg">
-              </p>
               <p>
                 <input type="hidden" name="old_image" value="<%= student.imagePath %>">
               </p>

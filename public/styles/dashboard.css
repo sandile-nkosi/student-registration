@@ -2,28 +2,6 @@ h1 {
 text-align: center;
 }
 
-h2 {
- text-align: center;
-}
-
-form#dashboard {
-  max-width: 25rem;
-  margin: var(--space-8) auto;
-  padding: var(--space-4);
-  background-color: var(--color-primary-100);
-  border-radius: var(--border-radius-medium);
-  text-align: center;
-}
-
-form#dashboard a{
-  color: var(--color-primary-200);
-}
-
-form#dashboard a:hover,
-form#dashboard a:active {
-  color: var(--color-primary-150);
-}
-
 .modal {
   position: fixed;
   top: 20%;
@@ -92,13 +70,25 @@ form#dashboard a:active {
   
   
   /* Profile image styles */
-  .profile_img {
-    max-width: 20%;
-    height: 150px;
-    margin-bottom: 1px;
+  .profile_image {
+    max-width: 10rem;
+    border-radius: 100%;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+  .custom-file-upload {
+    border: 1px solid #ccc;
+    border-radius: 0.2rem;
+    display: inline-block;
+    padding: 6px 12px;
     cursor: pointer;
   }
-  
+
+  .image_change {
+    text-align: left;
+  }
   
   /* Table styles */
   table {
