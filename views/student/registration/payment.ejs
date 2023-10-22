@@ -1,12 +1,40 @@
 <%- include('../../shared/includes/head', { pageTitle: 'Student Registration' }) %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/navigation.css">
+<link rel="stylesheet" href="/styles/payment.css">
+<script src="/scripts/payment.js" defer></script>
 </head>
   <body>
   <%- include('../../shared/includes/header') %>
     <main>
       <h1>Payment</h1>
       <section class="alert-payment">
-        <h4>Amount Due:</h4>
-            
-      </section>  
+        <h4>Account Balance: R<%= student.accountBal %></h4>
+        <h4>Now Due: <%= student.accountBal * 10 / 100 %></h4>
+        <h7>NSFAS/Bursary students are exempt from payment</h7>
+      </section>
+      <form action="/student/upload-student-documents/?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">
+        <section>
+          <p>
+            <input type="checkbox" id="bursary" name="bursary" value= true>
+            <label for="bursary">NSFAS/Bursary Holder</label> 
+          </p>
+          <p>
+            <section id="bursaryDocs" class="hidden">
+            <label for="document" class="custom-file-upload"><i class="fa fa-cloud-upload"></i> Proof of Bursary</label>
+          <br>  
+            <input type="file" name="document" id="document" accept=".pdf, .jpg, .docx" onchange="this.form.submit()">
+        </section>  
+        </p>
+      </section> 
+      </form>
+
+      <section>
+        <form action="">
+
+        </form>
+      </section>
+      
     </main>
 <%- include('../../shared/includes/footer') %>

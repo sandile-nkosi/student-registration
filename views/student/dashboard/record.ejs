@@ -1,0 +1,105 @@
+<%- include('../../shared/includes/head', { pageTitle: 'Student Registration' }) %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/navigation.css">
+<link rel="stylesheet" href="/styles/payment.css">
+<link rel="stylesheet" href="/styles/record.css">
+<script src="/scripts/record.js" defer></script>
+</head>
+  <body>
+  <%- include('../../shared/includes/header') %>
+    <main>
+      <section>
+        <h1>Academic Record</h1>
+        <section>
+          <div class="container">
+    
+            <h1>Modules</h1>
+            
+            <div class="faq-drawer">
+              <input class="faq-drawer__trigger" id="faq-drawer" type="checkbox" /><label class="faq-drawer__title" for="faq-drawer">YEAR ONE</label>
+              <div class="faq-drawer__content-wrapper">
+                <div class="faq-drawer__content">
+                  <p>
+                    <% if (student.course.year === 3) {%>
+                        <li>ACFS111</li>
+                        <li>INFS213</li>
+                        <li>INFS214</li>
+                        <li>ACFS121</li>
+                        <li>INFS223</li>
+                        <li>INFS224</li>
+                        <li>WVES222</li>
+                    <% } %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="faq-drawer">
+              <input class="faq-drawer__trigger" id="faq-drawer-2" type="checkbox" /><label class="faq-drawer__title" for="faq-drawer-2">YEAR TWO</label>
+              <div class="faq-drawer__content-wrapper">
+                <div class="faq-drawer__content">
+                  <p>
+                    <% if (student.course.year === 3) {%>
+                        <li>ACFS111</li>
+                        <li>INFS213</li>
+                        <li>INFS214</li>
+                        <li>ACFS121</li>
+                        <li>INFS223</li>
+                        <li>INFS224</li>
+                        <li>WVES222</li>
+                    <% } %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="faq-drawer">
+              <input class="faq-drawer__trigger" id="faq-drawer-3" type="checkbox" /><label class="faq-drawer__title" for="faq-drawer-3">YEAR THREE</label>
+              <div class="faq-drawer__content-wrapper">
+                <div class="faq-drawer__content">
+                  <p>
+                    <% if (student.course.year === 3) {%>
+                      <div>
+                        
+                      </div>
+                        <li>ACFS111<%= student.grades3.ACFS111 %></li>
+                        <li>INFS213 <%= student.grades3.INFS213 %></li>
+                        <li>INFS214 <%= student.grades3.INFS214 %></li>
+                        <li>ACFS121 <%= student.grades3.ACFS121 %></li>
+                        <li>INFS223 <%= student.grades3.INFS223 %></li>
+                        <li>INFS224 <%= student.grades3.INFS224 %></li>
+                        <li>WVES222 <%= student.grades3.WVES222 %></li>
+                    <% } %>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-drawer">
+              <input class="faq-drawer__trigger" id="faq-drawer-4" type="checkbox" /><label class="faq-drawer__title" for="faq-drawer-4">YEAR FOUR</label>
+              <div class="faq-drawer__content-wrapper">
+                <div class="faq-drawer__content">
+                  <p>
+                    <% if (student.course.year === 4) {%>
+                        <li>ACFS111</li>
+                        <li>INFS213</li>
+                        <li>INFS214</li>
+                        <li>ACFS121</li>
+                        <li>INFS223</li>
+                        <li>INFS224</li>
+                        <li>WVES222</li>
+                    <% } %>
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        
+        </body>
+        
+        </html>
+        </section>
+    </main>
+<%- include('../../shared/includes/footer') %>

@@ -57,6 +57,10 @@ a {
   color: var(--color-primary-50);
 }
 
+h1 {
+  text-align: center;
+}
+
 .btn {
   cursor: pointer;
   font: inherit;
@@ -89,9 +93,18 @@ a {
   background-color: var(--color-error-100);
   color: var(--color-error-500);
   padding: var(--space-4);
+  text-align: center;
 }
 
 .alert-payment {
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-primary-150);
+  color: var(--color-grey-700);
+  padding: var(--space-4);
+  text-align: center;
+}
+
+.alert-modules {
   border-radius: var(--border-radius-small);
   background-color: var(--color-primary-150);
   color: var(--color-grey-700);
@@ -105,7 +118,27 @@ a {
   text-transform: uppercase;
 }
 
+.alert-modules h2 {
+  font-size: 1rem;
+  margin: var(--space-2) 0;
+  text-transform: uppercase;
+}
+
+.alert-payment h2 {
+  font-size: 1rem;
+  margin: var(--space-2) 0;
+  text-transform: uppercase;
+}
+
 .alert p {
+  margin: var(--space-2) 0;
+}
+
+.alert-modules p {
+  margin: var(--space-2) 0;
+}
+
+.alert-payment p {
   margin: var(--space-2) 0;
 }
 

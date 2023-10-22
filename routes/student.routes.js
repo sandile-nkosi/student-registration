@@ -8,10 +8,10 @@ router.get('/dashboard', studentController.getDashboard);
 
 router.get('/update-dashboard/:id', studentController.getUpdateDashboard);
 
+router.get('/academic-record', studentController.getRecord);
+
 router.post('/update-dashboard', studentController.updateDashboard);
 
 router.post('/update-dashboard-image', imageUpload, studentController.updateImage);
-
-router.get('/payment', studentController.getPayment);
 
 module.exports = router;

@@ -12,6 +12,7 @@ const checkAuthStatus = require('./middlewares/check-auth');
 const authRoutes = require('./routes/auth.routes');
 const studentRoutes = require('./routes/student.routes');
 const registrationRoutes = require('./routes/registration.routes');
+const paymentRoutes = require('./routes/payment.routes');
 const baseRoutes = require('./routes/base.routes');
 
 const app = express();
@@ -35,6 +36,7 @@ app.use(baseRoutes);
 app.use(authRoutes);
 app.use('/student', studentRoutes);
 app.use('/student', registrationRoutes);
+app.use('/student', paymentRoutes);
 
 app.use(errorHandler);
 

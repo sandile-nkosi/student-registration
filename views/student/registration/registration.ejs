@@ -1,77 +1,86 @@
 <%- include('../../shared/includes/head', { pageTitle: 'Student Registration' }) %>
-<script src="/scripts/module-selector.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="/styles/base.css">
+<link rel="stylesheet" href="/styles/navigation.css">
+<script src="/scripts/registration.js" defer></script>
 </head>
   <body>
   <%- include('../../shared/includes/header') %>
     <main>
       <h1>Student Registration</h1>
-      <h2>Modules</h2>
-
-      <section class="alert">
-        <h2>Module Pre-requisite error</h2>
-        <p>modules: </p>    
+      <br>
+      <% if (student.course.registered) {%>
+        <section class="alert-modules">
+          <h2>You are already registered</h2>
+        </section>
+        <br>
+          <p>
+            <a class="btn" href="">Go to Dashboard</a>
+          </p>
+      <% } else { %>
+        <section class="alert-modules">
+        <h2>You are registering for year: <%= student.course.year+1 %></h2>
+        <p>Modules are pre-selected according to the relevant yearbook</p>   
       </section>
       <br>
-      <section>  
-        <select id="yearSelector">
-          <option value="">Select a year</option>
-          <option value="year1">Year 1</option>
-          <option value="year2">Year 2</option>
-          <option value="year3">Year 3</option>
-          <option value="year4">Year 4</option>    
-        </select>
-
-        <div id="year1" class="hidden">
-          <ul>
-            <% for (const module of modules) { %>
-              <% if (module.year === 1) { %>
-                <li>
-                  <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>"> 
-                  <label for="<%= module.moduleCode%>"><%= module.moduleCode%></label>
-                </li>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Module Code</th>
+            <th scope="col">Module Name</th>
+            <th scope="col">Module Credits</th>
+          </tr>
+        </thead>
+        <tbody>
+      <section>
+        <form action="/student/registration" method="POST">
+          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+          <div id="2">
+            <ul class="modules">
+              <% for (const module of modules2) { %>
+                <% if (student.course.year === 1) { %>
+                  <tr>
+                    <td><input type="hidden" name="selectedModules" id="<%= module.moduleCode%>" value="<%= module._id %>" checked><%= module.moduleCode%></td>
+                    <td><%= module.name %></td>
+                    <td><%= module.credits %></td>
+                  </tr>
+                <% } %>
               <% } %>
-            <% } %>
-          </ul>
-        </div>
-        <div id="year2" class="hidden">
-          <ul>
-            <% for (const module of modules) { %>
-              <% if (module.year === 2) { %>
-                <li>
-                  <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>"> 
-                  <label for="<%= module.moduleCode%>"><%= module.moduleCode%></label>
-                </li>
+            </ul>
+          </div>
+          <div id="3">
+            <ul class="modules">
+              <% for (const module of modules3) { %>
+                <% if (student.course.year === 2) { %>
+                  <tr>
+                    <td><input type="hidden" name="selectedModules" id="<%= module.moduleCode%>" value="<%= module._id %>" checked><%= module.moduleCode%></td>
+                    <td><%= module.name %></td>
+                    <td><%= module.credits %></td>
+                  </tr>
+                <% } %>
               <% } %>
-            <% } %>
-          </ul>
-        </div>
-        <div id="year3" class="hidden">
-          <ul>
-          <% for (const module of modules) { %>
-            <% if (module.year === 3) { %>
-              <li>
-                <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>"> 
-                  <label for="<%= module.moduleCode%>"><%= module.moduleCode%></label>
-              </li>
-            <% } %>
-          <% } %>
-          </ul>
-        </div>
-        <div id="year4" class="hidden">
-          <ul>
-            <% for (const module of modules) { %>
-              <% if (module.year === 4) { %>
-                <li>
-                  <input type="checkbox" id="<%= module.moduleCode%>" value="<%= module.moduleCode%>"> 
-                  <label for="<%= module.moduleCode%>"><%= module.moduleCode%></label>
-                </li>
+            </ul>
+          </div>
+          <div id="4">
+            <ul class="modules">
+              <% for (const module of modules4) { %>
+                <% if (student.course.year === 3) { %>
+                  <tr>
+                    <td><input type="hidden" name="selectedModules" id="<%= module.moduleCode%>" value="<%= module._id %>" checked><%= module.moduleCode%></td>
+                    <td><%= module.name %></td>
+                    <td><%= module.credits %></td>
+                  </tr>
+                <% } %>
               <% } %>
-            <% } %>
-          </ul>
-        </div>
-
+            </ul>
+          </div> 
+          </tbody>
+        </table>
+          <br>
+          <button id="register" class="btn">Submit Registration</button>
+        </form>
       </section>
-
+      <% } %>  
     </main>
 
 <%- include('../../shared/includes/footer') %>

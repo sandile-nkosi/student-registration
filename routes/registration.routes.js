@@ -5,4 +5,7 @@ const router = express.Router();
 
 router.get('/registration', registrationController.getRegistration);
 
+router.post('/registration', registrationController.updateRegistration);
+
+
 module.exports = router;

@@ -13,9 +13,9 @@ async function getDashboard (req, res, next) {
 };
 
 async function getUpdateDashboard (req, res, next){
-  let id = req.params.id;
+  // const id = req.params.id;
   try {
-    const student = await Student.findById(id);
+    const student = await Student.findById(req.session.uid);
     res.render('student/dashboard/update-dashboard', {student: student});
   } catch (error) {
     next(error);
@@ -29,6 +29,8 @@ async function updateDashboard (req, res, next) {
     await db.getDb().collection('students').updateOne({_id: id}, { $set: { 
       firstName: req.body.firstName,
       lastName: req.body.lastName,
+      contact: req.body.contact,
+      email: req.body.email
     }});
   } catch (error) {
     next(error);
@@ -43,7 +45,7 @@ async function updateImage (req, res, next) {
   const uploadedImage = req.file;
 
   try {
-    const result = await db.getDb().collection('students').updateOne({_id: id}, { $set: { 
+    await db.getDb().collection('students').updateOne({_id: id}, { $set: { 
       imagePath: uploadedImage.path
     }});
   } catch (error) {
@@ -53,14 +55,20 @@ async function updateImage (req, res, next) {
   res.redirect('../dashboard');
 }
 
-function getPayment(req, res){
-  res.render('student/registration/payment');
+async function getRecord (req, res, next) {
+  try {
+    const student = await Student.findById(req.session.uid);
+  res.render('student/dashboard/record', {student: student});
+  } catch (error) {
+    next(error);
+  }
 };
+
 
 module.exports = {
   getDashboard: getDashboard,
   getUpdateDashboard: getUpdateDashboard,
   updateDashboard: updateDashboard,
   updateImage: updateImage,
-  getPayment: getPayment
+  getRecord: getRecord
 };

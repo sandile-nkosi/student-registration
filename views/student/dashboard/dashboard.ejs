@@ -1,6 +1,5 @@
 <%- include('../../shared/includes/head', { pageTitle: 'Student Profile' }) %>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/styles/forms.css">
 <link rel="stylesheet" href="/styles/dashboard.css">
 <link rel="stylesheet" href="/styles/forms.css">
 <script src="/scripts/dashboard.js" defer></script>
@@ -26,7 +25,7 @@
                             <label for="image" class="custom-file-upload">
                               <i class="fa fa-cloud-upload"></i> Change Image
                           </label>
-                          <input id="image" name="image" type="file"/ accept="image/png,image/jpg" onchange="this.form.submit()">  
+                          <input id="image" name="image" type="file" accept="image/png,image/jpg" onchange="this.form.submit()">  
                           <input type="hidden" name="old-image" id="old-image" value="<%= student.imagePath%>">
                           </p>
                           </form>
@@ -39,9 +38,22 @@
                         <div class="card-body">
                           <p><strong>Student Number:</strong> <%= student.studentNum %></p>
                           <p><strong>Course:</strong> <%= student.course.name %> </p>
-                          <p><strong>Year level:</strong> <%= student.course.year %> </p>
+                          <p><strong>Last Registration Year:</strong> <%= student.course.year %> </p>
+                          <p>
+                            <strong>Registration status: </strong> <% if (student.course.registered && student.course.deposit) {%>
+                              Registered
+                            <% } else if (student.course.registered) { %>
+                              Conditionally Registered
+                            <% } else { %>
+                              Not Registered
+                            <% } %>
+                          </p>
                           <p><strong>Curriculum Code:</strong> <%= student.course.code %> </p>
                           <p><strong>Curriculum:</strong> <%= student.course.curriculum %> </p>
+                          <p><strong>Account Balance:</strong> R<%= student.accountBal %> </p>
+                          <p>
+                            <a class="btn" href="registration/payment">Make Payment</a>
+                          </p>                         
                         </div>
                       </div>
                     </div>
@@ -54,7 +66,7 @@
                           <table>
                             <tr>
                               <th>Title</th>
-                              <td>Mr</td>
+                              <td><%= student.title %></td>
                             </tr>
                             <tr>
                               <th>First names</th>
@@ -84,6 +96,17 @@
                             <tr>
                               <th>Address</th>
                               <td><%= student.address %></td>
+      
+                            </tr>
+                            <tr>
+                              <th>Uploaded Documents</th>
+                              <% if (student.documentPath) {%>
+                                <td><a class="download" href="<%= student.documentPath %>" download>Bursary Document</a></td>
+                              <% } %>
+                            </tr>
+                            <tr>
+                              <th>Academic Record</th>
+                              <td><a class="download" href="/student/academic-record">Academic Record</a></td>
       
                             </tr>
                           </table>
@@ -135,9 +158,6 @@
         <aside class="modal" id="edit-overlay">     
           <form action="/student/update-dashboard/?_csrf=<%= locals.csrfToken %>" method="POST">
             <div class="form-control">
-              <p>
-                <input type="hidden" name="old_image" value="<%= student.imagePath %>">
-              </p>
               <p>
                 <label for="firstName">First Name</label>
                 <input type="text" name="firstName" id="firstName" value="<%= student.firstName %>" required>  
