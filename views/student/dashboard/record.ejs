@@ -21,14 +21,16 @@
               <div class="faq-drawer__content-wrapper">
                 <div class="faq-drawer__content">
                   <p>
-                    <% if (student.course.year === 3) {%>
-                        <li>ACFS111</li>
-                        <li>INFS213</li>
-                        <li>INFS214</li>
-                        <li>ACFS121</li>
-                        <li>INFS223</li>
-                        <li>INFS224</li>
-                        <li>WVES222</li>
+                    <% if (student.course.year === 1) {%>
+                        <li>ALDE111<%= student.grades3.ALDE111 %></li>
+                        <li>ALDE112<%= student.grades3.ALDE112 %></li>
+                        <li>BMAN111<%= student.grades3.BMAN111 %></li>
+                        <li>BAM121<%= student.grades3.BAM121 %></li>
+                        <li>ICOM111<%= student.grades3.ICOM111 %></li>
+                        <li>INFS113<%= student.grades3.INFS113 %></li>
+                        <li>INFS122<%= student.grades3.INFS122 %></li>
+                        <li>MTHS119<%= student.grades3.MTHS119 %></li>
+                        <li>MTHS129<%= student.grades3.MTHS129 %></li>
                     <% } %>
                   </p>
                 </div>
@@ -40,14 +42,16 @@
               <div class="faq-drawer__content-wrapper">
                 <div class="faq-drawer__content">
                   <p>
-                    <% if (student.course.year === 3) {%>
-                        <li>ACFS111</li>
-                        <li>INFS213</li>
-                        <li>INFS214</li>
-                        <li>ACFS121</li>
-                        <li>INFS223</li>
-                        <li>INFS224</li>
-                        <li>WVES222</li>
+                    <% if (student.course.year === 2) {%>
+                        <li>ECAT121<%= student.grades3.ECAT121 %></li>
+                        <li>ECON112<%= student.grades3.ECON112 %></li>
+                        <li>ECON122 <%= student.grades3.ECON122 %></li>
+                        <li>ICAT111<%= student.grades3.ICAT111 %></li>
+                        <li>INFS211<%= student.grades3.INFS211 %></li>
+                        <li>INFS221<%= student.grades3.INFS221 %></li>
+                        <li>INFS222<%= student.grades3.INFS222 %></li>
+                        <li>STFM111<%= student.grades3.STFM111 %></li>
+                        <li>STFM125<%= student.grades3.STFM125 %></li>
                     <% } %>
                   </p>
                 </div>
@@ -82,13 +86,13 @@
                 <div class="faq-drawer__content">
                   <p>
                     <% if (student.course.year === 4) {%>
-                        <li>ACFS111</li>
-                        <li>INFS213</li>
-                        <li>INFS214</li>
-                        <li>ACFS121</li>
-                        <li>INFS223</li>
-                        <li>INFS224</li>
-                        <li>WVES222</li>
+                        <li>INFS311<%= student.grades3.INFS311 %></li>
+                        <li>INFS312<%= student.grades3.INFS312 %></li>
+                        <li>INFS321<%= student.grades3.INFS321 %></li>
+                        <li>ACFS322<%= student.grades3.INFS322 %></li>
+                        <li>INFS323<%= student.grades3.INFS323 %></li>
+                        <li>INF324<%= student.grades3.INFS324 %></li>
+                        <li>WVES312<%= student.grades3.WVES312 %></li>
                     <% } %>
                   </p>
                 </div>
