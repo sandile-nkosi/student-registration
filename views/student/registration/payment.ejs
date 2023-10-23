@@ -3,7 +3,9 @@
 <link rel="stylesheet" href="/styles/base.css">
 <link rel="stylesheet" href="/styles/navigation.css">
 <link rel="stylesheet" href="/styles/payment.css">
+<script src="/scripts/cleave.js" defer></script>
 <script src="/scripts/payment.js" defer></script>
+
 </head>
   <body>
   <%- include('../../shared/includes/header') %>
@@ -29,12 +31,29 @@
         </p>
       </section> 
       </form>
-
+  
       <section>
-        <form action="">
-
-        </form>
-      </section>
+          <form class="payment-form" action="/student/registration/payment" method="POST">
+            <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>">
+            <label for="card_number">Card Number:</label>
+            <input type="text" id="card_number" placeholder="1234 5678 9012 3456" name="card_number">
       
+            <label for="card-holder">Cardholder Name:</label>
+            <input type="text" id="card-holder" placeholder="John Doe">
+      
+            <div class="half-width">
+              <label for="expiry">Expiration Date:</label>
+              <input type="text" id="expiry" placeholder="MM/YY" name="expiry">
+            </div>
+      
+            <div class="half-width">
+              <label for="cvv">CVV:</label>
+              <input type="text" id="cvv" placeholder="123">
+            </div>
+      
+            <button type="submit" id = "mysubmit">Submit Payment</button>
+          </form>
+      </section>  
     </main>
 <%- include('../../shared/includes/footer') %>
+      

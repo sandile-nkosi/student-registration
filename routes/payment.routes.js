@@ -8,4 +8,6 @@ router.get('/registration/payment', paymentController.getPayment);
 
 router.post('/upload-student-documents', documentUpload, paymentController.uploadDocument);
 
+router.post('/registration/payment', paymentController.updatePayment);
+
 module.exports = router;

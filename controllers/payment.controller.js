@@ -29,7 +29,27 @@ async function uploadDocument (req, res, next) {
   res.redirect('../dashboard');
 }
 
+async function updatePayment(req, res, next){
+  const student = await Student.findById(req.session.uid);
+  
+  const date = new Date();
+  const dateString = date.toLocaleDateString('en-ZA', {hour: 'numeric', minute: 'numeric', second: 'numeric'});
+
+  try { 
+    await db.getDb().collection('students').updateOne({_id: student._id}, { $set: {
+      "payments.amount": 1000, 
+      "payments.date": dateString,
+    }});
+    res.redirect('../registration/payment');
+  } catch (error) {
+    next(error)
+  }
+
+  res.redirect('../registration/payment');
+}
+
 module.exports = {
   getPayment: getPayment,
-  uploadDocument: uploadDocument
+  uploadDocument: uploadDocument,
+  updatePayment: updatePayment
 }
