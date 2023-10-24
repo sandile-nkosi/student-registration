@@ -5,12 +5,53 @@
 <link rel="stylesheet" href="/styles/payment.css">
 <link rel="stylesheet" href="/styles/record.css">
 <script src="/scripts/record.js" defer></script>
+<style>
+  p{
+     text-align: center;
+     margin-bottom: 0px;
+  }
+  
+  table, th, tr{
+    border: 1px solid black;
+    overflow: auto;
+    max-height: 300px;
+    width: 100%;
+    display: block;
+    border-collapse:collapse;
+    
+  }
+  tr{
+    width: 380px;
+    
+    
+  }
+  
+  
+</style>
 </head>
   <body>
   <%- include('../../shared/includes/header') %>
     <main>
-      <section>
+     
         <h1>Academic Record</h1>
+        <p><strong>Student Name:</strong>
+        <%= student.firstName %> </p>
+            <p><strong>Student Number:</strong>
+              <%= student.studentNum %>
+            </p>
+            <p><strong>Course:</strong>
+              <%= student.course.name %>
+            </p>
+            <p><strong>Last Registration Year:</strong>
+              <%= student.course.year %>
+            </p>
+            <p><strong>Curriculum Code:</strong>
+              <%= student.course.code %>
+            </p>
+            <p><strong>Curriculum:</strong>
+              <%= student.course.curriculum %>
+            </p>
+     
         <section>
           <div class="container">
     
@@ -21,16 +62,47 @@
               <div class="faq-drawer__content-wrapper">
                 <div class="faq-drawer__content">
                   <p>
-                    <% if (student.course.year === 1) {%>
-                        <li>ALDE111<%= student.grades3.ALDE111 %></li>
-                        <li>ALDE112<%= student.grades3.ALDE112 %></li>
-                        <li>BMAN111<%= student.grades3.BMAN111 %></li>
-                        <li>BAM121<%= student.grades3.BAM121 %></li>
-                        <li>ICOM111<%= student.grades3.ICOM111 %></li>
-                        <li>INFS113<%= student.grades3.INFS113 %></li>
-                        <li>INFS122<%= student.grades3.INFS122 %></li>
-                        <li>MTHS119<%= student.grades3.MTHS119 %></li>
-                        <li>MTHS129<%= student.grades3.MTHS129 %></li>
+                    <% if (student.course.year>= 1) {%>
+                    
+                      <table>
+                        <tr>
+                          <td>ALDE111</td>
+                          <td><%= student.grades1.ALDE111 %></td>
+                        </tr>
+                        <tr>
+                          <td>ALDE112</td>
+                          <td><%= student.grades1.ALDE112 %></td>
+                        </tr>
+                        <tr>
+                          <td>BMAN111</td>
+                          <td><%= student.grades1.BMAN111 %></td>
+                        </tr>
+                        <tr>
+                          <td>BMAN121</td>
+                          <td><%= student.grades1.BMAN121 %></td>
+                        </tr>
+                        <tr>
+                          <td>ICOM111</td>
+                          <td><%= student.grades1.ICOM111 %></td>
+                        </tr>
+                        <tr>
+                          <td>INFS113</td>
+                          <td><%= student.grades1.INFS113 %></td>
+                        </tr>
+                        <tr>
+                          <td>INFS122</td>
+                          <td><%= student.grades1.INFS122 %></td>
+                        </tr>
+                        <tr>
+                          <td>MTHS119</td>
+                          <td><%= student.grades1.MTHS119 %></td>
+                        </tr>
+                        <tr>
+                          <td>MTHS129</td>
+                          <td><%= student.grades1.MTHS129 %></td>
+                        </tr>
+                      </table>
+                    
                     <% } %>
                   </p>
                 </div>
@@ -42,16 +114,47 @@
               <div class="faq-drawer__content-wrapper">
                 <div class="faq-drawer__content">
                   <p>
-                    <% if (student.course.year === 2) {%>
-                        <li>ECAT121<%= student.grades3.ECAT121 %></li>
-                        <li>ECON112<%= student.grades3.ECON112 %></li>
-                        <li>ECON122 <%= student.grades3.ECON122 %></li>
-                        <li>ICAT111<%= student.grades3.ICAT111 %></li>
-                        <li>INFS211<%= student.grades3.INFS211 %></li>
-                        <li>INFS221<%= student.grades3.INFS221 %></li>
-                        <li>INFS222<%= student.grades3.INFS222 %></li>
-                        <li>STFM111<%= student.grades3.STFM111 %></li>
-                        <li>STFM125<%= student.grades3.STFM125 %></li>
+                    <% if (student.course.year>= 2) {%>
+                  
+                    <table>
+                      <tr>
+                        <td>ECAT121</td>
+                        <td><%= student.grades2.ECAT121 %></td>
+                      </tr>
+                      <tr>
+                        <td>ECON112</td>
+                        <td><%= student.grades2.ECON112 %></td>
+                      </tr>
+                      <tr>
+                        <td>ECON122</td>
+                        <td><%= student.grades2.ECON122 %></td>
+                      </tr>
+                      <tr>
+                        <td>ICAT111</td>
+                        <td><%= student.grades2.ICAT111 %></td>
+                      </tr>
+                      <tr>
+                        <td>INFS211</td>
+                        <td><%= student.grades2.INFS211 %></td>
+                      </tr>
+                      <tr>
+                        <td>INFS221</td>
+                        <td><%= student.grades2.INFS221 %></td>
+                      </tr>
+                      <tr>
+                        <td>INFS222</td>
+                        <td><%= student.grades2.INFS222 %></td>
+                      </tr>
+                      <tr>
+                        <td>STFM111</td>
+                        <td><%= student.grades2.STFM111 %></td>
+                      </tr>
+                      <tr>
+                        <td>STFM125</td>
+                        <td><%= student.grades2.STFM125 %></td>
+                      </tr>
+                    </table>
+                  
                     <% } %>
                   </p>
                 </div>
@@ -63,18 +166,40 @@
               <div class="faq-drawer__content-wrapper">
                 <div class="faq-drawer__content">
                   <p>
-                    <% if (student.course.year === 3) {%>
-                      <div>
-                        
-                      </div>
-                        <li>ACFS111<%= student.grades3.ACFS111 %></li>
-                        <li>INFS213 <%= student.grades3.INFS213 %></li>
-                        <li>INFS214 <%= student.grades3.INFS214 %></li>
-                        <li>ACFS121 <%= student.grades3.ACFS121 %></li>
-                        <li>INFS223 <%= student.grades3.INFS223 %></li>
-                        <li>INFS224 <%= student.grades3.INFS224 %></li>
-                        <li>WVES222 <%= student.grades3.WVES222 %></li>
-                    <% } %>
+                    <% if (student.course.year >= 3) {%>
+                      
+                      <table>
+                        <tr>
+                            <td>ACFS111</td>
+                            <td><%= student.grades3.ACFS111 %></td>
+                        </tr>
+                        <tr>
+                          <td>INFS213</td>
+                          <td><%= student.grades3.INFS213 %></td>
+                        </tr>
+                        <tr>
+                          <td>INFS214</td>
+                          <td><%= student.grades3.INFS214 %></td>
+                        </tr>
+                        <tr>
+                          <td>ACFS121</td>
+                          <td><%= student.grades3.ACFS121 %></td>
+                        </tr>
+                        <tr>
+                          <td>INFS223</td>
+                          <td><%= student.grades3.INFS223 %></td>
+                        </tr>
+                        <tr>
+                          <td>INFS224</td>
+                          <td><%= student.grades3.INFS224 %></td>
+                        </tr>
+                        <tr>
+                          <td>WVES222</td>
+                          <td><%= student.grades3.WVES222 %></td>
+                        </tr>
+                      </table>
+                    
+                 <% } %>
                   </p>
                 </div>
               </div>
@@ -85,7 +210,7 @@
               <div class="faq-drawer__content-wrapper">
                 <div class="faq-drawer__content">
                   <p>
-                    <% if (student.course.year === 4) {%>
+                    <% if (student.course.year >= 4) {%>
                         <li>INFS311<%= student.grades3.INFS311 %></li>
                         <li>INFS312<%= student.grades3.INFS312 %></li>
                         <li>INFS321<%= student.grades3.INFS321 %></li>
