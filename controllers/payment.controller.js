@@ -31,16 +31,28 @@ async function uploadDocument (req, res, next) {
 
 async function updatePayment(req, res, next){
   const student = await Student.findById(req.session.uid);
+  var payment;
+  var accountBal = student.accountBal
+
+  if (student.payments.amount >= 11290){
+    payment = student.accountBal * 10 / 100
+  } else {
+    payment = 11290
+  }
+
+  accountBal -= payment
   
   const date = new Date();
   const dateString = date.toLocaleDateString('en-ZA', {hour: 'numeric', minute: 'numeric', second: 'numeric'});
 
   try { 
     await db.getDb().collection('students').updateOne({_id: student._id}, { $set: {
-      "payments.amount": 1000, 
+      "payments.amount": payment, 
       "payments.date": dateString,
+      "course.deposit": true,
+      accountBal: accountBal
     }});
-    res.redirect('../registration/payment');
+    return res.redirect('../dashboard');
   } catch (error) {
     next(error)
   }

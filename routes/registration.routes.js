@@ -7,5 +7,6 @@ router.get('/registration', registrationController.getRegistration);
 
 router.post('/registration', registrationController.updateRegistration);
 
+router.get('/por', registrationController.getPOR);
 
 module.exports = router;

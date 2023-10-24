@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proof Of Registration</title>
+    <link rel="stylesheet" href="/styles/proof.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="/scripts/por.js"></script>
+</head>
+<body>
+    <div id="por">
+        <form action="" id="form">
+                <div id = "text">
+                    <div id="address">
+                        <p>Private Bag X2046, Mmabatho</p>
+                        <p>South Africa, 2735</p>
+                        <p>Tell: (081) 389-2111</p>
+                        <p>Web: https://www.nwu.ac.za</p>
+                    </div>
+                    <img src="/images/nwu-logo.png" alt="NWU-logo"> 
+            
+                    <h1>Proof of Registration 2023</h1>
+                    <p id = "p1">It is hereby certified that </p>
+                    <h2 id="regraname" ><%= student.firstName + student.lastName%></h2>
+                    <h2 id="registra_stu_num">Student Number: <br> <%= student.studentNum %></h2>
+                    <p id = "p2">is registered as a student at the <b>Mahikeng Campus
+            
+                    </b>(NWU Faculty of Economic and Management Sciences)</p><br>
+            
+                    <p>for</p> <br>
+                    <h2 id="registra_course_name"> Course Name: <br> <%= student.course.name %></h2>
+                    <h2>Curriculum: <br> <%= student.course.curriculum %></h2>
+                    <br>
+                    <p>Academic Year: <%= student.course.year %></p>
+            
+                    <h4>Modules:</h4>
+                    <br>
+            
+                    <span id="modules">
+
+                        <% for (const key in student.grades2) {%>
+                            <p>
+                                <%= key %>
+                            </p>
+                        <% } %>
+            
+                    </span>
+                    
+                </div>
+
+            </form>
+    </div>
+
+</body>
+</html>

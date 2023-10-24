@@ -13,7 +13,12 @@
       <h1>Payment</h1>
       <section class="alert-payment">
         <h4>Account Balance: R<%= student.accountBal %></h4>
-        <h4>Now Due: <%= student.accountBal * 10 / 100 %></h4>
+        <% if (student.payments.amount >= 11290) {%>
+          <h4>Now Due: <%= student.accountBal * 10 / 100 %></h4>
+        <% } else { %>
+          <h4>Now Due: R11290</h4>
+        <% } %>
+        
         <h7>NSFAS/Bursary students are exempt from payment</h7>
       </section>
       <form action="/student/upload-student-documents/?_csrf=<%= locals.csrfToken %>" method="POST" enctype="multipart/form-data">

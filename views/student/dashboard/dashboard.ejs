@@ -51,6 +51,10 @@
                           <p><strong>Curriculum Code:</strong> <%= student.course.code %> </p>
                           <p><strong>Curriculum:</strong> <%= student.course.curriculum %> </p>
                           <p><strong>Account Balance:</strong> R<%= student.accountBal %> </p>
+                          <% if (student.payments.amount) {%>
+                            <p><strong>Last Payment:</strong> R<%= student.payments.amount %> </p>
+                            <p><strong>Last Payment Date:</strong> <%= student.payments.date %> </p>
+                          <% } %>
                           <p>
                             <a class="btn" href="registration/payment">Make Payment</a>
                           </p>                         
@@ -106,7 +110,12 @@
                             </tr>
                             <tr>
                               <th>Academic Record</th>
-                              <td><a class="download" href="/student/academic-record">Academic Record</a></td>
+                              <td><a class="download" href="/student/academic-record">View Record</a></td>
+      
+                            </tr>
+                            <tr>
+                              <th>Proof of Registration</th>
+                              <td><a class="download" href="/student/por">View Proof of Registration</a></td>
       
                             </tr>
                           </table>

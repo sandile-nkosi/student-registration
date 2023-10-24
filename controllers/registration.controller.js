@@ -17,6 +17,18 @@ async function getRegistration (req, res) {
   
 };
 
+async function getPOR (req, res){
+  
+
+  try {
+    const student = await Student.findById(req.session.uid);
+    res.render('student/registration/por', { student: student });
+  } catch (error) {
+    next(error)
+  }
+  
+}
+
 
 async function updateRegistration (req, res, next){
   let registrationBal = 0; 
@@ -44,18 +56,21 @@ async function updateRegistration (req, res, next){
 
 
   // registraton logic. 
-  if (student.course.year === 3) {
-    if (student.grades3.INFS223 < 50) {
-      delete registrationModules.INFS312;
-      registrationModules["INFS223"] = 0;    
+  if (student.course.year === 1) {
+    if (student.grades1.INFS113 < 50) {
+      //logic needed
+      delete registrationModules.INFS212;
+      delete registrationModules.INFS213;
+      delete registrationModules.INFS214;
+      delete registrationModules.INFS221;
+      delete registrationModules.INFS222;
+      registrationModules["INFS113"] = 0;    
     }
-    if (student.grades3.INFS224 < 50 || student.grades3.WVES222 < 50) {
-      delete registrationModules.INFS313;  
-      registrationModules["INFS224"] = 0;   
-    }
-    if (student.grades3.WVES222 < 50) {
-      delete registrationModules.WVES312;
-      registrationModules["WVES222"] = 0;
+    if (student.grades1.INFS122 < 50) {
+      delete registrationModules.INFS211;
+      delete registrationModules.INFS212;
+      delete registrationModules.INFS224;
+      registrationModules["INFS122"] = 0;
     }
   }
 
@@ -67,7 +82,7 @@ async function updateRegistration (req, res, next){
     await db.getDb().collection('students').updateOne({_id: student._id}, { $set: {
       "course.year": regYear, 
       accountBal: registrationBal,
-      grades4 : registrationModules,
+      grades2 : registrationModules,
       "course.registered": true
     }});
     res.redirect('/student/dashboard');
@@ -79,5 +94,6 @@ async function updateRegistration (req, res, next){
 
 module.exports = {
   getRegistration: getRegistration,
-  updateRegistration
+  updateRegistration: updateRegistration,
+  getPOR: getPOR
 }
