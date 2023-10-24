@@ -38,7 +38,7 @@
                         <div class="card-body">
                           <p><strong>Student Number:</strong> <%= student.studentNum %></p>
                           <p><strong>Course:</strong> <%= student.course.name %> </p>
-                          <p><strong>Last Registration Year:</strong> <%= student.course.year %> </p>
+                          <p><strong>Registration Year:</strong> <%= student.course.year %> </p>
                           <p>
                             <strong>Registration status: </strong> <% if (student.course.registered && student.course.deposit) {%>
                               Registered
@@ -115,8 +115,9 @@
                             </tr>
                             <tr>
                               <th>Proof of Registration</th>
-                              <td><a class="download" href="/student/por">View Proof of Registration</a></td>
-      
+                              <% if (student.course.deposit === true) {%>
+                                <td><a class="download" href="/student/por">View Proof of Registration</a></td>
+                              <% } %>
                             </tr>
                           </table>
                         </div>

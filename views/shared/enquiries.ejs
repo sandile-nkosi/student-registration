@@ -1,6 +1,8 @@
 <%- include('../shared/includes/head', { pageTitle: 'Enquiries' }) %>
 <link rel="icon" type="image/png" href="images/nwu-logo.png">
 <link rel="stylesheet" href="styles/misc.css">
+<script src="https://smtpjs.com/v3/smtp.js" defer>
+</script>
 </head>
   <body>
   <%- include('../shared/includes/header') %>
@@ -10,13 +12,38 @@
       <p>Contact The North-West University <br><br>Get in touch: <br>WhatsApp line: +27 60 070 2606 <br>SMS-line: 31750 <br>
       Email: studies@mynwu.info <br> <a href="#">Direction and routes</a></p>
       <form action="">
-        <textarea name="enquries" id="" cols="30" rows="10" placeholder="Write something..."></textarea>
         <p>
-          <button class="btn">Send Enquiry</button>
+         <input type="number" placeholder="Student Number" id="studentNum"> 
+        </p>
+        <textarea name="message" id="message" rows="10" placeholder="Write something..."></textarea>
+        <p>
+          <button class="btn" id="btn">Send Enquiry</button>
         </p>
       <br>
       <p><a class="btn" href="/">Back to home</a></p>
       </form>
+
+      <script>
+        var btn = document.getElementById('btn');
+        
+        btn.addEventListener('click', function(e){
+          e.preventDefault()
+          var studentNum = document.getElementById('studentNum').value;
+          var message = document.getElementById('message').value;
+          var body = 'student number: '+studentNum+ '<br/> message: '+message
+
+          Email.send({
+              SecureToken : "716cf5bd-1293-42d9-ba91-aa320f1042d0",
+              To : 'nwu3630@gmail.com',
+              From : "nwu3630@gmail.com",
+              Subject : "Enquiry Message",
+              Body : body
+          }).then(
+            message => alert(message)
+          );
+          
+        })
+      </script>
       
   </main>
 <%- include('../shared/includes/footer') %>
